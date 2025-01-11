@@ -1,4 +1,3 @@
-# AlgoHelper-G-Extension-
 # About Program
 This is a google extension program that activates when you open leetcode.com or hackerrank.com and start solving problem. This application uses chrome's extension dev services to know when specific URLs is open.
 
