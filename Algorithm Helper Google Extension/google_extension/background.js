@@ -1,4 +1,4 @@
-
+// For chrome tabs that just got opened
 chrome.tabs.onActivated.addListener((activeInfo) => {
     chrome.tabs.get(activeInfo.tabId, (tab) => {
         if (tab.url && tab.url.startsWith("http")) {
@@ -28,27 +28,27 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
         }
     });
 });
-  
+// Current chrome tabs that are either switched around up refreshed
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (tab.active && changeInfo.url && changeInfo.url.startsWith("http")) {
         console.log("Updated active tab URL:", changeInfo.url);
         // You can perform additional actions with the updated URL here
-        if (changeInfo.url.startsWith("https://leetcode.com/problems/") && changeInfo.url.endsWith("description/")){
+        if (changeInfo.url.startsWith("https://leetcode.com/problems/") && changeInfo.url.includes("description/")) {
             console.log('Leetcode Opened');// Log
 
-                fetch("http://localhost:5000/leetcode", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(changeInfo.url)
-                })
-                .then(response => {
-                    return response.json();
-                })
-                .then(data =>{
-                    console.log('Recieved from Flask: ', data)
-                })
+            fetch("http://localhost:5000/leetcode", {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(changeInfo.url)
+            })
+            .then(response => {
+                return response.json();
+            })
+            .then(data =>{
+                console.log('Recieved from Flask: ', data)
+            })
         } else {
             console.log('Not Leetcode');// Log
         }

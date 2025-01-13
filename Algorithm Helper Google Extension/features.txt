@@ -1,0 +1,9 @@
+
+utlzies recording process for voice reconition, starting, pasuing then processing to text for a more accurate and also nease of use for aprogram  to not interrupt while user is talking, allowing silences in ebtween 
+
+
+to by pass google extension limits on mic usage, smartly impolemented mic implemenation for backend inswestead of frontend allowing a smooth usage of extensions to help leetcode 
+
+created googel extension that automatiacly starts when user opens leetcode and doing algorithm coding problem, applicaton scrapes problem data and continues to respond to user's mic hoping for user's thoughts on how hes gonna solve it and exension, utilizing openai API formualte constructive feedback on the user's thoughts and, givijg them a better way and also how to conitnue going their wya if theys should do so. 
+
+auhtorizaiton system with mysql to effectively record and get user's past chat history with the queston for quick back to speed should user come back to the question another time
